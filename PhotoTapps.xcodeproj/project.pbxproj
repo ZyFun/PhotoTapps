@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		2CB1CB052497927D007DB8D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB1CB042497927D007DB8D9 /* AppDelegate.swift */; };
 		2CB1CB072497927D007DB8D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB1CB062497927D007DB8D9 /* SceneDelegate.swift */; };
-		2CB1CB092497927D007DB8D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB1CB082497927D007DB8D9 /* ViewController.swift */; };
 		2CB1CB0C2497927D007DB8D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CB1CB0A2497927D007DB8D9 /* Main.storyboard */; };
 		2CB1CB0E2497927F007DB8D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CB1CB0D2497927F007DB8D9 /* Assets.xcassets */; };
 		2CB1CB112497927F007DB8D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CB1CB0F2497927F007DB8D9 /* LaunchScreen.storyboard */; };
+		2CB1CB1924979346007DB8D9 /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB1CB1824979346007DB8D9 /* PhotosCollectionViewController.swift */; };
+		2CB1CB1B24979F31007DB8D9 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB1CB1A24979F31007DB8D9 /* PhotoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2CB1CB012497927C007DB8D9 /* PhotoTapps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoTapps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CB1CB042497927D007DB8D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CB1CB062497927D007DB8D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2CB1CB082497927D007DB8D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2CB1CB0B2497927D007DB8D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2CB1CB0D2497927F007DB8D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CB1CB102497927F007DB8D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CB1CB122497927F007DB8D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CB1CB1824979346007DB8D9 /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
+		2CB1CB1A24979F31007DB8D9 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +60,8 @@
 			children = (
 				2CB1CB042497927D007DB8D9 /* AppDelegate.swift */,
 				2CB1CB062497927D007DB8D9 /* SceneDelegate.swift */,
-				2CB1CB082497927D007DB8D9 /* ViewController.swift */,
+				2CB1CB1824979346007DB8D9 /* PhotosCollectionViewController.swift */,
+				2CB1CB1A24979F31007DB8D9 /* PhotoCell.swift */,
 				2CB1CB0A2497927D007DB8D9 /* Main.storyboard */,
 				2CB1CB0D2497927F007DB8D9 /* Assets.xcassets */,
 				2CB1CB0F2497927F007DB8D9 /* LaunchScreen.storyboard */,
@@ -138,9 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CB1CB092497927D007DB8D9 /* ViewController.swift in Sources */,
+				2CB1CB1B24979F31007DB8D9 /* PhotoCell.swift in Sources */,
 				2CB1CB052497927D007DB8D9 /* AppDelegate.swift in Sources */,
 				2CB1CB072497927D007DB8D9 /* SceneDelegate.swift in Sources */,
+				2CB1CB1924979346007DB8D9 /* PhotosCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
