@@ -10,9 +10,30 @@ import UIKit
 
 class PhotosCollectionViewController: UICollectionViewController {
 
+    //константа количества объектов на ряд
+    let itemsPerRow: CGFloat = 2
+    //настраиваем константу с отступами от секций
+    let sectionInserts = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //Пример другого способа разметки интерфейса коллекций
+//        //создаём константу, через которую мы получаем доступ по настройке размеров
+//        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+//        //настраиваем размер ячеек (но почему то у меня не работает и ничего не меняет)
+//        layout.itemSize = CGSize(width: 70, height: 30)
+//        //Настраиваем отступы
+//        layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+//        //Настраиваем отступ в линии
+//        layout.minimumLineSpacing = 1
+//        //Настраиваем отступ в столбцах
+//        layout.minimumInteritemSpacing = 1
+//        //Включаем вертикальную прокрутку
+//        layout.scrollDirection = .vertical
+//
+//        //отключаем отображение полосы прокрутки
+//        collectionView.showsVerticalScrollIndicator = false
     }
 
     // MARK: UICollectionViewDataSource
@@ -27,7 +48,7 @@ class PhotosCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         // Количество ячеек
-        return 15
+        return 100
     }
 
     // Конфигурирование ячейки
@@ -42,13 +63,11 @@ class PhotosCollectionViewController: UICollectionViewController {
 
 //дополняем наш класс, чтобы настроить интерфейс приложения
 extension PhotosCollectionViewController: UICollectionViewDelegateFlowLayout {
-    
+
     //метод для изменения размеров ячейки
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        //константа количества объектов на ряд
-        let itemsPerRow: CGFloat = 2
         //константа суммарного размеров отступа
-        let paddingWidth = 20 * (itemsPerRow + 1)
+        let paddingWidth = sectionInserts.left * (itemsPerRow + 1)
         //константа с помощью которой мы поймём, какая ширина доступна для ячеек
         let availableWidth = collectionView.frame.width - paddingWidth
         //Константа, с помощью которой производится вычисление, для определения ширины конкретной ячейки
@@ -56,20 +75,23 @@ extension PhotosCollectionViewController: UICollectionViewDelegateFlowLayout {
         //Возвращаем вычисленный размер ячейки
         return CGSize(width: widthPerItem, height: widthPerItem)
     }
-    
+
     //метод, для настройки отступа границ коллекции
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        //возвращаем заранее определенную константу типа UIEdgeInsets
+        return sectionInserts
     }
 
     //метод для настройки отступа в линии
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
+        //возвращаем заранее определенную константу типа UIEdgeInsets и берем её левое значение
+        return sectionInserts.left
     }
 
-//    //Какие границы? В курсе он не объяснил. Этот метод ломает всю разметку и выстраивает ячейки в ряд О_о Судя по документации, должен настраивать столбцы. Но в видео работает нормально, а у меня всё летит...
+//    //метод для настройки отступа в столбце. Этот метод ломает всю разметку и выстраивает ячейки в ряд О_о. Но в видео работает нормально, а у меня всё летит... Оставлю закомментированным, без него работает так же как показано в видео, не могу понять почему.
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        20
+//        //возвращаем заранее определенную константу типа UIEdgeInsets и берем её левое значение
+//        return sectionInserts.left
 //    }
-    
+
 }
