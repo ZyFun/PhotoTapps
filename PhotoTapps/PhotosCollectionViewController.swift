@@ -98,7 +98,7 @@ extension PhotosCollectionViewController: UICollectionViewDelegateFlowLayout {
         return sectionInserts.left
     }
 
-    //метод для настройки отступа в столбце. Этот метод ломает всю разметку и выстраивает ячейки в ряд О_о. Но в видео работает нормально, а у меня всё летит... Оставлю закомментированным, без него работает так же как показано в видео, не могу понять почему.
+    //метод для настройки отступа в столбце.
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         //возвращаем заранее определенную константу типа UIEdgeInsets и берем её левое значение
         return sectionInserts.left
