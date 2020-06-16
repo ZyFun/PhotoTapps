@@ -19,7 +19,7 @@ class PhotosCollectionViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        // КОличество секций
+        // Количество секций
         return 1
     }
 
@@ -38,9 +38,38 @@ class PhotosCollectionViewController: UICollectionViewController {
     
         return cell
     }
+}
 
-    extension PhotosCollectionViewController: UICollectionViewDelegateFlowLayout {
-         
+//дополняем наш класс, чтобы настроить интерфейс приложения
+extension PhotosCollectionViewController: UICollectionViewDelegateFlowLayout {
+    
+    //метод для изменения размеров ячейки
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        //константа количества объектов на ряд
+        let itemsPerRow: CGFloat = 2
+        //константа суммарного размеров отступа
+        let paddingWidth = 20 * (itemsPerRow + 1)
+        //константа с помощью которой мы поймём, какая ширина доступна для ячеек
+        let availableWidth = collectionView.frame.width - paddingWidth
+        //Константа, с помощью которой производится вычисление, для определения ширины конкретной ячейки
+        let widthPerItem = availableWidth / itemsPerRow
+        //Возвращаем вычисленный размер ячейки
+        return CGSize(width: widthPerItem, height: widthPerItem)
     }
+    
+    //метод, для настройки отступа границ коллекции
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+    }
+
+    //метод для настройки отступа в линии
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
+    }
+
+//    //Какие границы? В курсе он не объяснил. Этот метод ломает всю разметку и выстраивает ячейки в ряд О_о Судя по документации, должен настраивать столбцы. Но в видео работает нормально, а у меня всё летит...
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        20
+//    }
     
 }
