@@ -6,10 +6,14 @@
 //  Copyright © 2020 Дмитрий Данилин. All rights reserved.
 //
 
+
 import UIKit 
 
 class PhotosCollectionViewController: UICollectionViewController {
 
+    //массив с изображениями (на гитхаб я их не грузил, потому что тяжелые)
+    let photos = ["dog1", "dog2", "dog3", "dog4", "dog5", "dog6", "dog7", "dog8", "dog9", "dog10", "dog11", "dog12", "dog13", "dog14", "dog15"]
+    
     //константа количества объектов на ряд
     let itemsPerRow: CGFloat = 2
     //настраиваем константу с отступами от секций
@@ -44,18 +48,24 @@ class PhotosCollectionViewController: UICollectionViewController {
         return 1
     }
 
-
+    //конфигурация количества ячеек
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        // Количество ячеек
-        return 100
+        // Количество отображаемых ячеек посчитанное из массива фотографий
+        return photos.count
     }
 
     // Конфигурирование ячейки
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PhotoCell
-    
-        cell.backgroundColor = .black
+        
+        //обращаемся к объекту по индексу в массиве фотографий?
+        let imageName = photos[indexPath.item]
+        //получаем коллекцию фотографий?
+        let image = UIImage(named: imageName)
+        
+        //вызываем фотографии в ячейку
+        cell.gdansImageView.image = image
     
         return cell
     }
@@ -88,10 +98,10 @@ extension PhotosCollectionViewController: UICollectionViewDelegateFlowLayout {
         return sectionInserts.left
     }
 
-//    //метод для настройки отступа в столбце. Этот метод ломает всю разметку и выстраивает ячейки в ряд О_о. Но в видео работает нормально, а у меня всё летит... Оставлю закомментированным, без него работает так же как показано в видео, не могу понять почему.
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        //возвращаем заранее определенную константу типа UIEdgeInsets и берем её левое значение
-//        return sectionInserts.left
-//    }
+    //метод для настройки отступа в столбце. Этот метод ломает всю разметку и выстраивает ячейки в ряд О_о. Но в видео работает нормально, а у меня всё летит... Оставлю закомментированным, без него работает так же как показано в видео, не могу понять почему.
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        //возвращаем заранее определенную константу типа UIEdgeInsets и берем её левое значение
+        return sectionInserts.left
+    }
 
 }
