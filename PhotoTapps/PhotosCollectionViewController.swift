@@ -40,6 +40,17 @@ class PhotosCollectionViewController: UICollectionViewController {
 //        collectionView.showsVerticalScrollIndicator = false
     }
 
+    //функция подготовки отображения изображения при нажатии на ячейку для перехода
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "pickPhotoSegue" {
+            //присваиваем константе значение контроллера
+            let photoVC = segue.destination as! PhotoViewController
+            let cell = sender as! PhotoCell
+            //отправляем фото с одного storyboard в другой
+            photoVC.image = cell.gdansImageView.image
+        }
+    }
+    
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
