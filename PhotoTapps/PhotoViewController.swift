@@ -25,5 +25,17 @@ class PhotoViewController: UIViewController {
     }
     
     @IBAction func shareAction(_ sender: UIButton) {
+        //присваиваем константе принудительно извлеченное изображение, которое открыто в данный момент.
+        let shareController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
+        
+        //проверяем, успешно ли было отправлено сообщение или нет
+        shareController.completionWithItemsHandler = { _, bool, _, _ in
+            if bool {
+                print("Успешно")
+            }
+        }
+        
+        //отображаем на экране контроллер shareController
+        present(shareController, animated: true, completion: nil)
     }
 }
